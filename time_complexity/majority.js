@@ -16,7 +16,7 @@ const isMajority=(arr)=>{
     }
     return false;
 }
-let arr=[3,1,3,4,4]
+let arr=[3,1,3,,3,3,4,4];
 if(isMajority(arr)){
     console.log("it is  majority");
 }

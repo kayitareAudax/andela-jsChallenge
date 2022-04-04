@@ -8,21 +8,25 @@ function isPrime(num){
 }
 function sort(numbers){
     //remove primes
-    const nonPrime=numbers.filter(function(num){return !isPrime(num)});
-    for(let i=0;i<nonPrime.length;i++){
+    let sorted=[];
+    for(let i=0;i<numbers.length;i++){
         let max_index=i;
-        for(let j=i+1;j<nonPrime.length;j++){
-            if(nonPrime[j]>nonPrime[max_index]){
+        for(let j=i+1;j<numbers.length;j++){
+            if(numbers[j]>numbers[max_index]){
                 max_index=j;
             }
         }
-        if(nonPrime[max_index]!=nonPrime[i]){
-            let temp=nonPrime[i];
-            nonPrime[i]=nonPrime[max_index];
-            nonPrime[max_index]=temp;
+        if(numbers[max_index]!=numbers[i]){
+            let temp=numbers[i];
+            numbers[i]=numbers[max_index];
+            numbers[max_index]=temp;
         }
     }
-    return nonPrime;
+    for(let i=0;i<numbers.length;i++){
+        if(!isPrime(numbers[i])){
+            sorted.push(numbers[i]);
+        }
+    }
+    return sorted;
 }
-console.log(sort([1, 2, 3, 4, 5, 6, 7, 8, 9,"qd", 0]));
-
+console.log(sort([1, 2, 3, 4, 5, 6, 7, 8, 9]));
